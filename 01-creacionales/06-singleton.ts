@@ -9,3 +9,63 @@
  *
  * https://refactoring.guru/es/design-patterns/singleton
  */
+
+class DragonBalls {
+  private static instance: DragonBalls;
+  private ballsCollected: number;
+
+  private constructor() {
+    this.ballsCollected = 0;
+  }
+
+  public static getInstance(): DragonBalls {
+    if (!DragonBalls.instance) {
+      DragonBalls.instance = new DragonBalls();
+      console.log(`Las esferas del Dragon han sido creadas`);
+    }
+
+    return DragonBalls.instance;
+  }
+
+  collectBall(): void {
+    if (this.ballsCollected < 7) {
+      this.ballsCollected++;
+      console.log(
+        `Esferas recoletadas. Total de esferas: ${this.ballsCollected}`
+      );
+      return;
+    }
+
+    console.log(`Ya se recoletaron las 7 esferas del dragon`);
+  }
+
+  summonShenlong() {
+    if (this.ballsCollected === 7) {
+      console.log(`Pide tu deseo`);
+    }
+  }
+}
+
+function main() {
+  const gokuDragonBalls = DragonBalls.getInstance();
+
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+  gokuDragonBalls.collectBall();
+
+  const veggetaDragonBalls = DragonBalls.getInstance();
+
+  veggetaDragonBalls.collectBall();
+  veggetaDragonBalls.collectBall();
+  veggetaDragonBalls.collectBall();
+  veggetaDragonBalls.collectBall();
+
+  gokuDragonBalls.collectBall();
+
+  veggetaDragonBalls.collectBall();
+
+  gokuDragonBalls.collectBall();
+}
+
+main();

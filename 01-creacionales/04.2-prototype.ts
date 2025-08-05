@@ -9,7 +9,7 @@
  * 
  * https://refactoring.guru/es/design-patterns/prototype
  */
-
+ 
 class Pokemon {
   name: string;
   type: string;

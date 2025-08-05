@@ -6,3 +6,4 @@
  *  * Es útil para mantener un historial de estados en aplicaciones interactivas.
  *
  */
+ 
